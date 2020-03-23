@@ -15,21 +15,21 @@ var stringifyJSON = function(obj) {
     stringified += obj;
   } else if (objType === 'object') {
     if (Array.isArray(obj)) {
-      var stringyArr = [];
+      var strings = [];
       for (var i = 0; i < obj.length; i++) {
-        stringyArr.push(stringifyJSON(obj[i]));
+        strings.push(stringifyJSON(obj[i]));
       }
-      stringified += '[' + stringyArr.join() + ']';
+      stringified += '[' + strings.join() + ']';
     } else {
-      var stringyArr = [];
+      var strings = [];
       var keys = Object.keys(obj);
       keys.forEach(function(key) {
         var value = stringifyJSON(obj[key]);
         if (value !== undefined) {
-          stringyArr.push(stringifyJSON(key) + ':' + value);
+          strings.push(stringifyJSON(key) + ':' + value);
         }
       });
-      stringified += '{' + stringyArr.join() + '}';
+      stringified += '{' + strings.join() + '}';
     }
   }
   return stringified;
