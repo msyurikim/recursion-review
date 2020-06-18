@@ -5,7 +5,7 @@ var parseJSON = function(json) {
   var firstChar = json.charAt(0);
   var lastChar = json.charAt(json.length-1);
   if (lastChar !== '}' && lastChar !== ']') {
-    throw new SyntaxError('missing closing bracket/brace');
+    //throw new SyntaxError('missing closing bracket/brace');
   }
   //remove outer brackets/braces
   var jsonString = removeFirstLastChar(json);
